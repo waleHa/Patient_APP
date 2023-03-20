@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="model"
+            type="com.trends.patientapplication.model.PatientRemoteModel" />
+    </data>
+
+    <com.google.android.material.card.MaterialCardView
+        android:id="@+id/card_view"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="4dp"
+        app:cardCornerRadius="10dp"
+        app:cardElevation="1dp"
+        app:strokeColor="@color/stroke_color"
+        app:strokeWidth="1dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@{model.selected ? @color/color_primary : @color/color_secondary}"
+            android:orientation="vertical">
+
+<!--            <com.google.android.material.imageview.ShapeableImageView-->
+<!--                android:id="@+id/image_view_patient"-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="match_parent"-->
+<!--                android:layout_margin="10dp"-->
+<!--                android:layout_weight=".8"-->
+<!--                android:scaleType="fitXY"-->
+<!--                app:imageSetter="@{model.photo.toString()}"-->
+<!--                app:shapeAppearanceOverlay="@style/ShapeAppearanceOverlayAdapterCardView"-->
+<!--                tools:src="@tools:sample/avatars" />-->
+
+            <ImageView
+                android:id="@+id/image_view_patient"
+                android:layout_width="match_parent"
+                android:layout_height="200dp"
+                android:layout_margin="10dp"
+                android:layout_weight=".8"
+                app:imageSetter="@{model.photo.toString()}"
+                tools:src="@tools:sample/avatars"/>
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/text_view_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:text="@{model.name}"
+                android:layout_margin="10dp"
+                android:textColor="@{model.selected ? @color/color_on_primary : @color/color_on_secondary}"
+                tools:text="text_view_name" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/text_view_birt_date"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:text="@{model.birthdate}"
+                android:layout_margin="10dp"
+                android:textColor="@{model.selected ? @color/color_on_primary : @color/color_on_secondary}"
+                tools:text="text_view_birt_date" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/text_view_condition"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:text="@{model.condition}"
+                android:layout_margin="10dp"
+                android:textColor="@{model.selected ? @color/color_on_primary : @color/color_on_secondary}"
+                tools:text="text_view_condition" />
+        </LinearLayout>
+    </com.google.android.material.card.MaterialCardView>
+</layout>

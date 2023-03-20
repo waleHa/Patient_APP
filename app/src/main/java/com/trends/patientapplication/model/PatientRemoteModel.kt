@@ -29,5 +29,7 @@ data class PatientRemoteModel(
     @SerializedName("updatedAt")
     val updatedAt: String,
     @SerializedName("__v")
-    val v: Int
+    val v: Int,
+
+    var selected: Boolean = false
 )

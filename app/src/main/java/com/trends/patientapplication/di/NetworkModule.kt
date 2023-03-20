@@ -16,7 +16,7 @@ object NetworkModule {
     @Singleton
     fun getRetrofit(): Retrofit {
         return Retrofit.Builder()
-            .baseUrl("")
+            .baseUrl("https://patients-app-api.herokuapp.com/")
             .addConverterFactory(GsonConverterFactory.create())
             .build()
     }
