@@ -7,7 +7,7 @@
 
         <variable
             name="model"
-            type="com.trends.patientapplication.domain.model.PatientRemoteModel" />
+            type="com.trends.patientapplication.domain.model.patient.PatientRemoteModel" />
     </data>
 
     <com.google.android.material.card.MaterialCardView
@@ -15,7 +15,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="4dp"
-        app:cardCornerRadius="10dp"
+        app:cardCornerRadius="@dimen/margin_medium"
         app:cardElevation="1dp"
         app:strokeColor="@color/stroke_color"
         app:strokeWidth="1dp">
@@ -30,7 +30,7 @@
                 android:id="@+id/image_view_patient"
                 android:layout_width="match_parent"
                 android:layout_height="200dp"
-                android:layout_margin="10dp"
+                android:layout_margin="@dimen/margin_medium"
                 android:layout_weight=".8"
                 android:scaleType="fitXY"
                 app:imageSetter="@{model.photo.toString()}"
@@ -44,8 +44,8 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:text="@{model.name}"
-                android:layout_margin="10dp"
-                android:textColor="@{model.selected ? @color/color_on_primary : @color/color_on_secondary}"
+                android:layout_margin="@dimen/margin_medium"
+                android:textColor="@{model.selected ? @color/color_on_primary : @color/black}"
                 tools:text="text_view_name" />
 
             <androidx.appcompat.widget.AppCompatTextView
@@ -54,8 +54,8 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:text="@{model.birthdate}"
-                android:layout_margin="10dp"
-                android:textColor="@{model.selected ? @color/color_on_primary : @color/color_on_secondary}"
+                android:layout_margin="@dimen/margin_medium"
+                android:textColor="@{model.selected ? @color/color_on_primary : @color/black}"
                 tools:text="text_view_birt_date" />
 
             <androidx.appcompat.widget.AppCompatTextView
@@ -64,7 +64,7 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:text="@{model.condition}"
-                android:layout_margin="10dp"
+                android:layout_margin="@dimen/margin_medium"
                 android:textColor="@{model.selected ? @color/color_on_primary : @color/color_on_secondary}"
                 tools:text="text_view_condition" />
         </LinearLayout>

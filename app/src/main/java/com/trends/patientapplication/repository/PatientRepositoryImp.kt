@@ -1,7 +1,7 @@
 package com.trends.patientapplication.repository
 
 import com.trends.patientapplication.datasource.PatientRemoteDataSource
-import com.trends.patientapplication.domain.model.PatientRemoteModel
+import com.trends.patientapplication.domain.model.patient.PatientRemoteModel
 import javax.inject.Inject
 import javax.inject.Singleton
 

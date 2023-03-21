@@ -7,7 +7,7 @@
 
     <fragment
         android:id="@+id/patientFragment"
-        android:name="com.trends.patientapplication.features.patients.PatientFragment"
+        android:name="com.trends.patientapplication.features.patient.PatientFragment"
         android:label="fragment_patient"
         tools:layout="@layout/fragment_patient" />
 </navigation>

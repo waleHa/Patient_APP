@@ -1,4 +1,4 @@
-package com.trends.patientapplication.features.patients
+package com.trends.patientapplication.features.patient
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -11,7 +11,7 @@ import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.RecyclerView
 import com.trends.patientapplication.databinding.FragmentPatientBinding
-import com.trends.patientapplication.domain.model.PatientRemoteModel
+import com.trends.patientapplication.domain.model.patient.PatientRemoteModel
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.launch
 
