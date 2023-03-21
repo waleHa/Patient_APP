@@ -1,6 +1,6 @@
-package com.trends.patientapplication.di
+package com.trends.patientapplication.data.di
 
-import com.trends.patientapplication.datasource.PatientRemoteDataSource
+import com.trends.patientapplication.data.datasource.PatientRemoteDataSource
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn

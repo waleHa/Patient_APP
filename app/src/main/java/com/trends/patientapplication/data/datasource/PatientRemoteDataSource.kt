@@ -1,4 +1,4 @@
-package com.trends.patientapplication.datasource
+package com.trends.patientapplication.data.datasource
 
 import com.trends.patientapplication.domain.model.patient.WrappedPatientRemoteModel
 import retrofit2.http.GET

@@ -1,4 +1,4 @@
-package com.trends.patientapplication.features.patient
+package com.trends.patientapplication.presentation.features.patient.adapter
 
 import android.view.LayoutInflater
 import android.view.View

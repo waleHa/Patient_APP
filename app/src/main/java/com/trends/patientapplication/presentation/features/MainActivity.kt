@@ -1,4 +1,4 @@
-package com.trends.patientapplication.features
+package com.trends.patientapplication.presentation.features
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle

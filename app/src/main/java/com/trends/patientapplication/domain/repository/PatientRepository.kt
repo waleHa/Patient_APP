@@ -1,4 +1,4 @@
-package com.trends.patientapplication.repository
+package com.trends.patientapplication.domain.repository
 
 import com.trends.patientapplication.domain.model.patient.PatientRemoteModel
 
