@@ -1,4 +1,4 @@
-package com.trends.patientapplication.model
+package com.trends.patientapplication.domain.model
 
 
 import com.google.gson.annotations.SerializedName

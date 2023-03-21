@@ -10,9 +10,8 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.RecyclerView
-import com.bumptech.glide.Glide.init
 import com.trends.patientapplication.databinding.FragmentPatientBinding
-import com.trends.patientapplication.model.PatientRemoteModel
+import com.trends.patientapplication.domain.model.PatientRemoteModel
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.launch
 

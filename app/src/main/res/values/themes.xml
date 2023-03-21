@@ -14,7 +14,7 @@
         <!-- Customize your theme here. -->
     </style>
 
-    <style name="ShapeAppearanceOverlayAdapterCardView" parent="">
+    <style name="CustomCardView" parent="CardView.Light">
         <item name="cornerFamily">rounded</item>
         <item name="cornerSize">5%</item>
     </style>

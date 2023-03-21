@@ -1,10 +1,8 @@
 package com.trends.patientapplication.features.patients
 
-import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.trends.patientapplication.model.PatientRemoteModel
-import com.trends.patientapplication.repository.PatientRepository
+import com.trends.patientapplication.domain.model.PatientRemoteModel
 import com.trends.patientapplication.repository.PatientRepositoryImp
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.MutableStateFlow

@@ -7,7 +7,7 @@
 
         <variable
             name="model"
-            type="com.trends.patientapplication.model.PatientRemoteModel" />
+            type="com.trends.patientapplication.domain.model.PatientRemoteModel" />
     </data>
 
     <com.google.android.material.card.MaterialCardView
@@ -26,25 +26,17 @@
             android:background="@{model.selected ? @color/color_primary : @color/color_secondary}"
             android:orientation="vertical">
 
-<!--            <com.google.android.material.imageview.ShapeableImageView-->
-<!--                android:id="@+id/image_view_patient"-->
-<!--                android:layout_width="match_parent"-->
-<!--                android:layout_height="match_parent"-->
-<!--                android:layout_margin="10dp"-->
-<!--                android:layout_weight=".8"-->
-<!--                android:scaleType="fitXY"-->
-<!--                app:imageSetter="@{model.photo.toString()}"-->
-<!--                app:shapeAppearanceOverlay="@style/ShapeAppearanceOverlayAdapterCardView"-->
-<!--                tools:src="@tools:sample/avatars" />-->
-
-            <ImageView
+            <com.google.android.material.imageview.ShapeableImageView
                 android:id="@+id/image_view_patient"
                 android:layout_width="match_parent"
                 android:layout_height="200dp"
                 android:layout_margin="10dp"
                 android:layout_weight=".8"
+                android:scaleType="fitXY"
                 app:imageSetter="@{model.photo.toString()}"
-                tools:src="@tools:sample/avatars"/>
+                app:shapeAppearanceOverlay="@style/CustomCardView"
+                tools:src="@tools:sample/avatars" />
+
 
             <androidx.appcompat.widget.AppCompatTextView
                 android:id="@+id/text_view_name"
