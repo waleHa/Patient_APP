@@ -1,25 +1,31 @@
 <?xml version="1.0" encoding="utf-8"?>
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:background="@color/teal_700"
+    android:background="@color/color_secondary"
     tools:context=".presentation.features.patient.PatientFragment">
 
 
     <ProgressBar
         android:id="@+id/progress"
         android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+
+    <ImageView
+        android:id="@+id/image_error"
+        android:layout_width="match_parent"
         android:layout_height="match_parent"
-        />
+        android:visibility="gone"
+        android:src="@drawable/ic_error" />
+
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recycler_view"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
         app:spanCount="2"
-        tools:listitem="@layout/patient_item"
         tools:itemCount="20"
-        />
+        tools:listitem="@layout/patient_item" />
 </FrameLayout>

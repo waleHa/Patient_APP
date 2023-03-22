@@ -36,7 +36,7 @@ class PatientFragment : Fragment() {
 
     }
 
-    private fun initRecyclerView(list: List<PatientRemoteModel>) {
+    private fun initRecyclerView(list: List<com.trends.patientapplication.domain.model.patient.PatientRemoteModel>) {
         adapter = PatientAdapter(list)
         recyclerView = binding.recyclerView
         recyclerView.adapter = adapter
@@ -63,18 +63,18 @@ class PatientFragment : Fragment() {
     }
 
 
-    private fun patientsCallSuccess(list: List<PatientRemoteModel>) {
-//        Toast.makeText(requireContext(), list.toString(), Toast.LENGTH_LONG).show()
+    private fun patientsCallSuccess(list: List<com.trends.patientapplication.domain.model.patient.PatientRemoteModel>) {
+        binding.imageError.isVisible = false
         initRecyclerView(list)
     }
 
     private fun patientsCallError(exception: Exception?) {
         Toast.makeText(requireContext(), exception?.localizedMessage.toString(), Toast.LENGTH_LONG)
             .show()
+        binding.imageError.isVisible = true
     }
 
     private fun patientLoadingStatus(b: Boolean) {
         binding.progress.isVisible = b
     }
-
 }

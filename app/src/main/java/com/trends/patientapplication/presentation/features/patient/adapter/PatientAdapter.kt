@@ -8,7 +8,7 @@ import com.trends.patientapplication.R
 import com.trends.patientapplication.databinding.PatientItemBinding
 import com.trends.patientapplication.domain.model.patient.PatientRemoteModel
 
-class PatientAdapter(private val list: List<PatientRemoteModel>) :
+class PatientAdapter(private val list: List<com.trends.patientapplication.domain.model.patient.PatientRemoteModel>) :
     RecyclerView.Adapter<PatientAdapter.PatientViewHolder>() {
 
     var lastSelected = -1
