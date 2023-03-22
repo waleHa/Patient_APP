@@ -7,7 +7,6 @@
     android:background="@color/color_secondary"
     tools:context=".presentation.features.patient.PatientFragment">
 
-
     <ProgressBar
         android:id="@+id/progress"
         android:layout_width="match_parent"
