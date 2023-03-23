@@ -1,4 +1,4 @@
-package com.trends.patientapplication.presentation.features.patient
+package com.trends.patientapplication.presentation.feature.patient
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope

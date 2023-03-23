@@ -33,6 +33,7 @@ android {
 }
 
 dependencies {
+    api project(path: ":domain")
 
     // Retrofit
     implementation 'com.squareup.retrofit2:retrofit:2.6.0'
@@ -42,7 +43,6 @@ dependencies {
     // Dagger Hilt
     implementation 'com.google.dagger:hilt-android:2.44'
     kapt 'com.google.dagger:hilt-android-compiler:2.44'
-    implementation 'androidx.hilt:hilt-navigation-fragment:1.0.0'
 
-    api project(path: ":domain")
+
 }

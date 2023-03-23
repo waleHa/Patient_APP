@@ -1,9 +1,7 @@
-package com.trends.patientapplication.presentation.features
+package com.trends.patientapplication.presentation
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import com.trends.patientapplication.R
-import dagger.hilt.EntryPoint
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint

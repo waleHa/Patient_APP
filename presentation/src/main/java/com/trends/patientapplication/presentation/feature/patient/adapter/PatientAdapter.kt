@@ -1,12 +1,11 @@
-package com.trends.patientapplication.presentation.features.patient.adapter
+package com.trends.patientapplication.presentation.feature.patient.adapter
 
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
-import com.trends.patientapplication.R
-import com.trends.patientapplication.databinding.PatientItemBinding
-import com.trends.patientapplication.domain.model.patient.PatientRemoteModel
+import com.trends.patientapplication.presentation.R
+import com.trends.patientapplication.presentation.databinding.PatientItemBinding
 
 class PatientAdapter(private val list: List<com.trends.patientapplication.domain.model.patient.PatientRemoteModel>) :
     RecyclerView.Adapter<PatientAdapter.PatientViewHolder>() {
