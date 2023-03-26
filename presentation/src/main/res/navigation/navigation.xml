@@ -8,6 +8,11 @@
     <fragment
         android:id="@+id/patientFragment"
         android:name="com.trends.patientapplication.presentation.feature.patient.PatientFragment"
-        android:label="fragment_patient"
+        android:label="Patient Fragment"
         tools:layout="@layout/fragment_patient" />
+    <fragment
+        android:id="@+id/addPatientFragment"
+        android:name="com.trends.patientapplication.presentation.feature.add.AddPatientFragment"
+        android:label="Add Patient Fragment"
+        tools:layout="@layout/fragment_add_patient" />
 </navigation>

@@ -18,7 +18,7 @@ class PatientsViewModel @Inject constructor(private val getPatientSortedByNameUs
         getPatients()
     }
 
-    private fun getPatients() {
+    fun getPatients() {
         viewModelScope.launch {
             try {
                  patientsListSuccess.emit(getPatientSortedByNameUseCase())

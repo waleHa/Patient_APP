@@ -9,18 +9,23 @@ import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.RecyclerView
+import com.trends.patientapplication.domain.model.patient.PatientRemoteModel
+import com.trends.patientapplication.presentation.R
 import com.trends.patientapplication.presentation.databinding.FragmentPatientBinding
 import com.trends.patientapplication.presentation.feature.patient.adapter.PatientAdapter
 import dagger.hilt.android.AndroidEntryPoint
+import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
+
 
 @AndroidEntryPoint
 class PatientFragment : Fragment() {
     private lateinit var binding: FragmentPatientBinding
     private val viewModel: PatientsViewModel by viewModels()
     private lateinit var recyclerView: RecyclerView
-    private lateinit var adapter: PatientAdapter
+    private val adapter = PatientAdapter()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?
@@ -31,29 +36,45 @@ class PatientFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        initCollecter()
-
+        initObserver()
+        initListener()
     }
 
-    private fun initRecyclerView(list: List<com.trends.patientapplication.domain.model.patient.PatientRemoteModel>) {
-        adapter = PatientAdapter(list)
+    private fun initListener() {
+        binding.fabAddPatient.setOnClickListener {
+            findNavController().navigate(R.id.addPatientFragment)
+        }
+
+        binding.swipeRefreshLayout.setOnRefreshListener {
+            viewModel.getPatients()
+            lifecycleScope.launch {
+                delay(3000)
+                binding.swipeRefreshLayout.isRefreshing = false
+            }
+        }
+    }
+
+    private fun initRecyclerView(list: List<PatientRemoteModel>) {
+        adapter.setData(list)
         recyclerView = binding.recyclerView
         recyclerView.adapter = adapter
     }
 
-    private fun initCollecter() {
+    private fun initObserver() {
         lifecycleScope.launch {
             viewModel.patientsListSuccess.collect {
                 if (it.isNotEmpty())
                     patientsCallSuccess(it)
             }
         }
+
         lifecycleScope.launch {
             viewModel.patientsListError.collect {
                 if (it != null)
                     patientsCallError(it)
             }
         }
+
         lifecycleScope.launch {
             viewModel.patientsListLoading.collect {
                 patientLoadingStatus(it)
@@ -61,8 +82,7 @@ class PatientFragment : Fragment() {
         }
     }
 
-
-    private fun patientsCallSuccess(list: List<com.trends.patientapplication.domain.model.patient.PatientRemoteModel>) {
+    private fun patientsCallSuccess(list: List<PatientRemoteModel>) {
         binding.imageError.isVisible = false
         initRecyclerView(list)
     }
