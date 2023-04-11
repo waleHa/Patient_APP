@@ -1,4 +1,4 @@
-package com.trends.patientapplication.domain.usecase.patient
+package com.trends.patientapplication.domain.usecase.add
 
 import com.trends.patientapplication.domain.model.add.BodyAddPatientRemoteModel
 import com.trends.patientapplication.domain.repository.patient.PatientRepository
