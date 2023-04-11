@@ -21,11 +21,11 @@
         app:strokeColor="@color/stroke_color"
         app:strokeWidth="1dp">
 
-        <LinearLayout
+        <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:background="@{model.selected ? @color/color_primary : @color/color_secondary}"
-            android:orientation="vertical">
+            >
 
             <com.google.android.material.imageview.ShapeableImageView
                 android:id="@+id/image_view_patient"
@@ -35,21 +35,34 @@
                 android:layout_weight=".8"
                 android:scaleType="fitXY"
                 app:imageSetter="@{model.photo.toString()}"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
                 app:shapeAppearanceOverlay="@style/CustomCardView"
                 tools:src="@tools:sample/avatars" />
 
+            <com.google.android.material.imageview.ShapeableImageView
+                android:id="@+id/delete_item"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:layout_margin="10dp"
+                android:src="@drawable/ic_delete"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent" />
 
             <androidx.appcompat.widget.AppCompatTextView
                 android:id="@+id/text_view_name"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
-                android:maxLines="1"
-                android:ellipsize="end"
-                android:text="@{model.name}"
                 android:layout_margin="@dimen/margin_medium"
+                android:ellipsize="end"
+                android:maxLines="1"
+                android:text="@{model.name}"
                 android:textColor="@{model.selected ? @color/white : @color/black}"
-
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/image_view_patient"
                 tools:text="text_view_name" />
 
             <androidx.appcompat.widget.AppCompatTextView
@@ -62,7 +75,11 @@
                 android:maxLines="1"
                 android:ellipsize="end"
                 android:textColor="@{model.selected ? @color/white : @color/black}"
-                tools:text="text_view_birt_date" />
+                tools:text="text_view_birt_date"
+
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/text_view_name"/>
 
             <androidx.appcompat.widget.AppCompatTextView
                 android:id="@+id/text_view_condition"
@@ -74,7 +91,10 @@
                 android:maxLines="1"
                 android:ellipsize="end"
                 android:textColor="@{model.selected ? @color/white : @color/color_on_primary}"
-                tools:text="text_view_condition" />
-        </LinearLayout>
+                tools:text="text_view_condition"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/text_view_birt_date"/>
+        </androidx.constraintlayout.widget.ConstraintLayout>
     </com.google.android.material.card.MaterialCardView>
 </layout>

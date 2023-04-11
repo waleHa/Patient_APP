@@ -4,7 +4,7 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.trends.patientapplication.domain.model.add.AddPatientRemoteModel
 import com.trends.patientapplication.domain.model.add.BodyAddPatientRemoteModel
-import com.trends.patientapplication.domain.usecase.patient.AddPatientUseCase
+import com.trends.patientapplication.domain.usecase.add.AddPatientUseCase
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow

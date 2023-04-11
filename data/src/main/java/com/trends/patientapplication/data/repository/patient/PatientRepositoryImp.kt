@@ -5,6 +5,7 @@ import androidx.lifecycle.ViewModel
 import com.trends.patientapplication.data.datasource.PatientRemoteDataSource
 import com.trends.patientapplication.domain.model.add.AddPatientRemoteModel
 import com.trends.patientapplication.domain.model.add.BodyAddPatientRemoteModel
+import com.trends.patientapplication.domain.model.delete.DeletePatientResponseModel
 import com.trends.patientapplication.domain.model.patient.PatientRemoteModel
 import com.trends.patientapplication.domain.repository.patient.PatientRepository
 import dagger.Module
@@ -21,6 +22,10 @@ class PatientRepositoryImp @Inject constructor(private val patientRemoteDataSour
 
     override suspend fun addPatient(bodyAddPatientModel: BodyAddPatientRemoteModel): AddPatientRemoteModel =
         patientRemoteDataSource.addPatient(bodyAddPatientModel)
+
+    override suspend fun deletePatient(id: String): DeletePatientResponseModel =
+        patientRemoteDataSource.deletePatient(id)
+
 }
 
 

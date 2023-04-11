@@ -11,6 +11,8 @@ import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.RecyclerView
+import com.google.android.material.dialog.MaterialAlertDialogBuilder
+import com.trends.patientapplication.domain.model.delete.DeletePatientResponseModel
 import com.trends.patientapplication.domain.model.patient.PatientRemoteModel
 import com.trends.patientapplication.presentation.R
 import com.trends.patientapplication.presentation.databinding.FragmentPatientBinding
@@ -25,7 +27,7 @@ class PatientFragment : Fragment() {
     private lateinit var binding: FragmentPatientBinding
     private val viewModel: PatientsViewModel by viewModels()
     private lateinit var recyclerView: RecyclerView
-    private val adapter = PatientAdapter()
+    private lateinit var adapter: PatientAdapter
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?
@@ -36,8 +38,10 @@ class PatientFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+//        initAdapter()
         initObserver()
         initListener()
+        initAdapterView()
     }
 
     private fun initListener() {
@@ -54,43 +58,68 @@ class PatientFragment : Fragment() {
         }
     }
 
-    private fun initRecyclerView(list: List<PatientRemoteModel>) {
-        adapter.setData(list)
+    private fun initAdapterView() {
+        adapter = PatientAdapter(::deletePatient)
+        //        adapter.setData(list)
         recyclerView = binding.recyclerView
         recyclerView.adapter = adapter
     }
 
     private fun initObserver() {
         lifecycleScope.launch {
-            viewModel.patientsListSuccess.collect {
-                if (it.isNotEmpty())
-                    patientsCallSuccess(it)
-            }
+            viewModel.patientsListSuccess.collect(::patientsCallSuccess)
         }
 
         lifecycleScope.launch {
-            viewModel.patientsListError.collect {
-                if (it != null)
-                    patientsCallError(it)
-            }
+            viewModel.patientsError.collect (::patientsCallError)
         }
 
         lifecycleScope.launch {
-            viewModel.patientsListLoading.collect {
-                patientLoadingStatus(it)
-            }
+            viewModel.deletePatientsSuccess.observe(viewLifecycleOwner,::onPatientDeletedSuccess)
         }
+
+        lifecycleScope.launch {
+            viewModel.patientsListLoading.collect(::patientLoadingStatus)
+        }
+    }
+
+    private fun onPatientDeletedSuccess(response: DeletePatientResponseModel?){
+        if (response != null) {
+            Toast.makeText(requireContext(),response.message,Toast.LENGTH_LONG).show()
+            viewModel.getPatients()
+        }
+    }
+
+    private fun deletePatient(id: String) {
+        MaterialAlertDialogBuilder(requireContext())
+            .setMessage("Are you sure you want to remove this item?")
+            .setNegativeButton("No") { dialog, _ ->
+                dialog.dismiss()
+            }
+            .setPositiveButton("Yes") { dialog, _ ->
+                viewModel.deletePatient(id)
+                dialog.dismiss()
+            }.show()
     }
 
     private fun patientsCallSuccess(list: List<PatientRemoteModel>) {
-        binding.imageError.isVisible = false
-        initRecyclerView(list)
+        if (list.isNotEmpty()) {
+            binding.imageError.isVisible = false
+//        initAdapterView()
+            adapter.submitList(list)
+        }
     }
 
     private fun patientsCallError(exception: Exception?) {
-        Toast.makeText(requireContext(), exception?.localizedMessage.toString(), Toast.LENGTH_LONG)
-            .show()
-        binding.imageError.isVisible = true
+        if (exception != null) {
+            Toast.makeText(
+                requireContext(),
+                exception?.localizedMessage.toString(),
+                Toast.LENGTH_LONG
+            )
+                .show()
+            binding.imageError.isVisible = true
+        }
     }
 
     private fun patientLoadingStatus(b: Boolean) {
