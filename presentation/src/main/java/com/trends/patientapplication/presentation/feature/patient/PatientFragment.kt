@@ -1,10 +1,12 @@
 package com.trends.patientapplication.presentation.feature.patient
 
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
+import androidx.core.os.bundleOf
 import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
@@ -59,8 +61,7 @@ class PatientFragment : Fragment() {
     }
 
     private fun initAdapterView() {
-        adapter = PatientAdapter(::deletePatient)
-        //        adapter.setData(list)
+        adapter = PatientAdapter(::deletePatient,::onClickItem)
         recyclerView = binding.recyclerView
         recyclerView.adapter = adapter
     }
@@ -124,5 +125,10 @@ class PatientFragment : Fragment() {
 
     private fun patientLoadingStatus(b: Boolean) {
         binding.progress.isVisible = b
+    }
+
+    private fun onClickItem(id:String){
+        Log.i("Logs: PatientFragment", id)
+        findNavController().navigate(R.id.detailsPatientFragment, bundleOf("id" to id))
     }
 }

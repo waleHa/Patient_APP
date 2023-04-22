@@ -28,7 +28,8 @@ data class PatientRemoteModel(
     val tests: List<Test>,
     @SerializedName("updatedAt")
     val updatedAt: String,
-    @SerializedName("__v")
-    val v: Int,
+    //local var
     var selected: Boolean = false
-)
+){
+    fun getInfo() = "Lives in $address \nEmail: $email \nBorn on $birthdate"
+}

@@ -4,30 +4,30 @@ import com.google.gson.annotations.SerializedName
 import com.trends.patientapplication.domain.model.patient.Test
 
 data class AddPatientRemoteModel (
-        @SerializedName("address")
+    @SerializedName("address")
         val address: String,
-        @SerializedName("birthdate")
+    @SerializedName("birthdate")
         val birthdate: String,
-        @SerializedName("condition")
+    @SerializedName("condition")
         val condition: String,
-        @SerializedName("createdAt")
+    @SerializedName("createdAt")
         val createdAt: String,
-        @SerializedName("email")
+    @SerializedName("email")
         val email: String,
-        @SerializedName("gender")
+    @SerializedName("gender")
         val gender: String,
-        @SerializedName("_id")
+    @SerializedName("_id")
         val id: String,
-        @SerializedName("mobile")
+    @SerializedName("mobile")
         val mobile: String,
-        @SerializedName("name")
+    @SerializedName("name")
         val name: String,
-        @SerializedName("photo")
+    @SerializedName("photo")
         val photo: String,
-        @SerializedName("tests")
+    @SerializedName("tests")
         val tests: List<Test>,
-        @SerializedName("updatedAt")
+    @SerializedName("updatedAt")
         val updatedAt: String,
-        @SerializedName("__v")
+    @SerializedName("__v")
         val v: Int,
 )

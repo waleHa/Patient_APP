@@ -10,11 +10,13 @@ import com.trends.patientapplication.domain.model.patient.PatientRemoteModel
 import com.trends.patientapplication.presentation.R
 import com.trends.patientapplication.presentation.databinding.PatientItemBinding
 
-class PatientAdapter(private val onDeletePatient: (id: String) -> Unit) :
+class PatientAdapter(
+    private val onDeletePatient: (id: String) -> Unit,
+    private val onClickItem: (String) -> Unit
+) :
     ListAdapter<PatientRemoteModel, PatientAdapter.PatientViewHolder>(DiffCallback) {
 
     var lastSelected = -1
-
 
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): PatientViewHolder {
@@ -35,6 +37,7 @@ class PatientAdapter(private val onDeletePatient: (id: String) -> Unit) :
                 currentPatient?.selected = true
                 notifyItemChanged(position)
             }
+            onClickItem(currentPatient.id)
         }
 
         holder.binding.deleteItem.setOnClickListener {
