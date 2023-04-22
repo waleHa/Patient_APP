@@ -1,13 +1,13 @@
 package com.trends.patientapplication.domain.repository.patient
 
-import com.trends.patientapplication.domain.model.add.AddPatientRemoteModel
-import com.trends.patientapplication.domain.model.add.BodyAddPatientRemoteModel
-import com.trends.patientapplication.domain.model.delete.DeletePatientResponseModel
-import com.trends.patientapplication.domain.model.patient.PatientRemoteModel
+import com.trends.patientapplication.domain.model.add.AddPatientResponse
+import com.trends.patientapplication.domain.model.add.AddPatientRequest
+import com.trends.patientapplication.domain.model.delete.DeletePatientResponse
+import com.trends.patientapplication.domain.model.patient.PatientResponse
 
 interface PatientRepository {
-    suspend fun getPatients(): List<PatientRemoteModel>
-    suspend fun  addPatients(bodyAddPatientModel: BodyAddPatientRemoteModel): AddPatientRemoteModel
-    suspend fun deletePatient(id: String): DeletePatientResponseModel
-    suspend fun getPatientById(id: String): PatientRemoteModel
+    suspend fun getPatients(): List<PatientResponse>
+    suspend fun  addPatients(bodyAddPatientModel: AddPatientRequest): AddPatientResponse
+    suspend fun deletePatient(id: String): DeletePatientResponse
+    suspend fun getPatientById(id: String): PatientResponse
 }

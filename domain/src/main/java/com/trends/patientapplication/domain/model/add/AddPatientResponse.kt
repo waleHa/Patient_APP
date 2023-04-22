@@ -3,7 +3,7 @@ package com.trends.patientapplication.domain.model.add
 import com.google.gson.annotations.SerializedName
 import com.trends.patientapplication.domain.model.patient.Test
 
-data class AddPatientRemoteModel (
+data class AddPatientResponse (
     @SerializedName("address")
         val address: String,
     @SerializedName("birthdate")

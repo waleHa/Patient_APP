@@ -1,6 +1,6 @@
 package com.trends.patientapplication.domain.model.add
 
-data class BodyAddPatientRemoteModel(
+data class AddPatientRequest(
     val name:String,
     val address:String,
     val gender:String,
