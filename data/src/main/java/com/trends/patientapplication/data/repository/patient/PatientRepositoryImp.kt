@@ -18,7 +18,7 @@ import javax.inject.Singleton
 class PatientRepositoryImp @Inject constructor(private val patientRemoteDataSource: PatientRemoteDataSource) :
     PatientRepository {
     override suspend fun getPatients(): List<PatientRemoteModel> =
-        patientRemoteDataSource.getPatients().patientRemoteModel
+        patientRemoteDataSource.getPatients().data
 
     override suspend fun addPatients(bodyAddPatientModel: BodyAddPatientRemoteModel): AddPatientRemoteModel =
         patientRemoteDataSource.addPatient(bodyAddPatientModel)
