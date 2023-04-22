@@ -4,8 +4,8 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.trends.patientapplication.domain.model.delete.DeletePatientResponseModel
-import com.trends.patientapplication.domain.model.patient.PatientRemoteModel
+import com.trends.patientapplication.domain.model.delete.DeletePatientResponse
+import com.trends.patientapplication.domain.model.patient.PatientResponse
 import com.trends.patientapplication.domain.usecase.delete.DeletePatientUseCase
 import com.trends.patientapplication.domain.usecase.patient.GetPatientSortedByNameUseCase
 import dagger.hilt.android.lifecycle.HiltViewModel
@@ -16,8 +16,8 @@ import javax.inject.Inject
 
 @HiltViewModel
 class PatientsViewModel @Inject constructor(private val getPatientSortedByNameUseCase: GetPatientSortedByNameUseCase, private val deletePatientUseCase: DeletePatientUseCase) : ViewModel() {
-    private val _patientsListSuccess = MutableStateFlow<List<PatientRemoteModel>>(emptyList())
-    val patientsListSuccess : StateFlow<List<PatientRemoteModel>> = _patientsListSuccess
+    private val _patientsListSuccess = MutableStateFlow<List<PatientResponse>>(emptyList())
+    val patientsListSuccess : StateFlow<List<PatientResponse>> = _patientsListSuccess
 
     private val _patientsError = MutableStateFlow<Exception?>(null)
     val patientsError : StateFlow<Exception?> = _patientsError
@@ -25,8 +25,8 @@ class PatientsViewModel @Inject constructor(private val getPatientSortedByNameUs
     private val _patientsListLoading = MutableStateFlow(true)
     val patientsListLoading : StateFlow<Boolean> = _patientsListLoading
 
-     private val _deletePatientsSuccess = MutableLiveData<DeletePatientResponseModel?>()
-    val deletePatientsSuccess : LiveData<DeletePatientResponseModel?> = _deletePatientsSuccess
+     private val _deletePatientsSuccess = MutableLiveData<DeletePatientResponse?>()
+    val deletePatientsSuccess : LiveData<DeletePatientResponse?> = _deletePatientsSuccess
 
 
     init {

@@ -6,18 +6,16 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
-import androidx.core.content.ContentProviderCompat.requireContext
 import androidx.core.os.bundleOf
 import androidx.core.view.isVisible
-import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.RecyclerView
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import com.trends.patientapplication.core.BaseFragment
-import com.trends.patientapplication.domain.model.delete.DeletePatientResponseModel
-import com.trends.patientapplication.domain.model.patient.PatientRemoteModel
+import com.trends.patientapplication.domain.model.delete.DeletePatientResponse
+import com.trends.patientapplication.domain.model.patient.PatientResponse
 import com.trends.patientapplication.presentation.R
 import com.trends.patientapplication.presentation.databinding.FragmentPatientBinding
 import com.trends.patientapplication.presentation.feature.patient.adapter.PatientAdapter
@@ -85,7 +83,7 @@ class PatientFragment : BaseFragment<FragmentPatientBinding>(R.layout.fragment_p
         }
     }
 
-    private fun onPatientDeletedSuccess(response: DeletePatientResponseModel?){
+    private fun onPatientDeletedSuccess(response: DeletePatientResponse?){
         if (response != null) {
             Toast.makeText(requireContext(),response.message,Toast.LENGTH_LONG).show()
             viewModel.getPatients()
@@ -104,7 +102,7 @@ class PatientFragment : BaseFragment<FragmentPatientBinding>(R.layout.fragment_p
             }.show()
     }
 
-    private fun patientsCallSuccess(list: List<PatientRemoteModel>) {
+    private fun patientsCallSuccess(list: List<PatientResponse>) {
         if (list.isNotEmpty()) {
             binding.imageError.isVisible = false
 //        initAdapterView()

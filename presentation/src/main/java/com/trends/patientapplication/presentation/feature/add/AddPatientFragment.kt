@@ -5,13 +5,11 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
-import androidx.core.content.ContentProviderCompat.requireContext
 import androidx.core.view.isVisible
-import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
 import com.trends.patientapplication.core.BaseFragment
-import com.trends.patientapplication.domain.model.add.BodyAddPatientRemoteModel
+import com.trends.patientapplication.domain.model.add.AddPatientRequest
 import com.trends.patientapplication.presentation.R
 import com.trends.patientapplication.presentation.databinding.FragmentAddPatientBinding
 import dagger.hilt.android.AndroidEntryPoint
@@ -47,8 +45,8 @@ class AddPatientFragment : BaseFragment<FragmentAddPatientBinding>(R.layout.frag
         }
     }
 
-    private fun getPatientInfo(): BodyAddPatientRemoteModel {
-        return BodyAddPatientRemoteModel(
+    private fun getPatientInfo(): AddPatientRequest {
+        return AddPatientRequest(
             binding.editTextName.text.toString(),
             binding.editTextAddress.text.toString(),
             binding.editTextGender.text.toString(),

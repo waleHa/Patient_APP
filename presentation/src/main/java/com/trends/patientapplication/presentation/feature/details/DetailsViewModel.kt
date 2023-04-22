@@ -1,10 +1,9 @@
 package com.trends.patientapplication.presentation.feature.details
 
-import android.util.Log
 import androidx.lifecycle.SavedStateHandle
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.trends.patientapplication.domain.model.patient.PatientRemoteModel
+import com.trends.patientapplication.domain.model.patient.PatientResponse
 import com.trends.patientapplication.domain.usecase.details.GetPatientByIdUseCase
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.MutableStateFlow
@@ -19,7 +18,7 @@ class DetailsViewModel @Inject constructor(
     savedStateHandle: SavedStateHandle
 ) : ViewModel() {
 
-    private val _detailsSuccessStateFlow: MutableStateFlow<PatientRemoteModel?> =
+    private val _detailsSuccessStateFlow: MutableStateFlow<PatientResponse?> =
         MutableStateFlow(null)
     val detailsSuccessStateFlow = _detailsSuccessStateFlow.asStateFlow()
 

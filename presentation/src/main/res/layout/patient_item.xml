@@ -8,7 +8,7 @@
 
         <variable
             name="model"
-            type="com.trends.patientapplication.domain.model.patient.PatientRemoteModel" />
+            type="com.trends.patientapplication.domain.model.patient.PatientResponse" />
     </data>
 
     <com.google.android.material.card.MaterialCardView
