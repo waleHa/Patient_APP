@@ -20,11 +20,15 @@ class PatientRepositoryImp @Inject constructor(private val patientRemoteDataSour
     override suspend fun getPatients(): List<PatientRemoteModel> =
         patientRemoteDataSource.getPatients().patientRemoteModel
 
-    override suspend fun addPatient(bodyAddPatientModel: BodyAddPatientRemoteModel): AddPatientRemoteModel =
+    override suspend fun addPatients(bodyAddPatientModel: BodyAddPatientRemoteModel): AddPatientRemoteModel =
         patientRemoteDataSource.addPatient(bodyAddPatientModel)
 
     override suspend fun deletePatient(id: String): DeletePatientResponseModel =
         patientRemoteDataSource.deletePatient(id)
+
+    override suspend fun getPatientById(id: String): PatientRemoteModel =
+        patientRemoteDataSource.getPatientById(id).data
+
 
 }
 

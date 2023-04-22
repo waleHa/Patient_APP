@@ -3,6 +3,7 @@ package com.trends.patientapplication.data.datasource
 import com.trends.patientapplication.domain.model.add.AddPatientRemoteModel
 import com.trends.patientapplication.domain.model.add.BodyAddPatientRemoteModel
 import com.trends.patientapplication.domain.model.delete.DeletePatientResponseModel
+import com.trends.patientapplication.domain.model.details.DetailsPatientWrapperRemoteModel
 import com.trends.patientapplication.domain.model.patient.WrappedPatientRemoteModel
 import retrofit2.http.Body
 import retrofit2.http.DELETE
@@ -19,4 +20,7 @@ interface PatientRemoteDataSource {
 
     @DELETE("patients/{id}")
     suspend fun deletePatient(@Path("id") id : String):DeletePatientResponseModel
+
+    @GET("patients/{id}")
+    suspend fun getPatientById(@Path("id") id : String):DetailsPatientWrapperRemoteModel
 }

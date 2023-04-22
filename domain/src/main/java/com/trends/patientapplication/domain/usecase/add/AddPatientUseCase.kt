@@ -5,6 +5,6 @@ import com.trends.patientapplication.domain.repository.patient.PatientRepository
 import javax.inject.Inject
 
 class AddPatientUseCase @Inject constructor(private val repository: PatientRepository) {
-    suspend operator fun invoke(bodyAddPatientRemoteModel: BodyAddPatientRemoteModel) = repository.addPatient(bodyAddPatientRemoteModel)
+    suspend operator fun invoke(bodyAddPatientRemoteModel: BodyAddPatientRemoteModel) = repository.addPatients(bodyAddPatientRemoteModel)
 
 }

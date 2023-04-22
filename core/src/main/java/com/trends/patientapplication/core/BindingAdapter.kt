@@ -11,7 +11,7 @@ fun ImageView.imageSetter(url: String?) {
     try {
         Glide.with(this).load(url).centerCrop().into(this)
     }catch (e:Exception){
-        Log.i("TAG:2", e.localizedMessage!!.toString())
+        Log.i("Logs:2", e.localizedMessage!!.toString())
         val url2 = "https://previews.123rf.com/images/urfandadashov/urfandadashov1806/urfandadashov180601827/150417827-photo-not-available-vector-icon-isolated-on-transparent-background-photo-not-available-logo-concept.jpg"
         Glide.with(this).load(url2).centerCrop().into(this)
     }

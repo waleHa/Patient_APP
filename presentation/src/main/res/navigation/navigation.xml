@@ -10,9 +10,16 @@
         android:name="com.trends.patientapplication.presentation.feature.patient.PatientFragment"
         android:label="Patient Fragment"
         tools:layout="@layout/fragment_patient" />
+
     <fragment
         android:id="@+id/addPatientFragment"
         android:name="com.trends.patientapplication.presentation.feature.add.AddPatientFragment"
         android:label="Add Patient Fragment"
         tools:layout="@layout/fragment_add_patient" />
+
+    <fragment
+        android:id="@+id/detailsPatientFragment"
+        android:name="com.trends.patientapplication.presentation.feature.details.DetailsPatientFragment"
+        android:label="fragment_details_patient"
+        tools:layout="@layout/fragment_details_patient" />
 </navigation>

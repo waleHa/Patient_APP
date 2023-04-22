@@ -7,7 +7,7 @@ import com.trends.patientapplication.domain.model.patient.PatientRemoteModel
 
 interface PatientRepository {
     suspend fun getPatients(): List<PatientRemoteModel>
-    suspend fun  addPatient(bodyAddPatientModel: BodyAddPatientRemoteModel): AddPatientRemoteModel
-
+    suspend fun  addPatients(bodyAddPatientModel: BodyAddPatientRemoteModel): AddPatientRemoteModel
     suspend fun deletePatient(id: String): DeletePatientResponseModel
+    suspend fun getPatientById(id: String): PatientRemoteModel
 }
