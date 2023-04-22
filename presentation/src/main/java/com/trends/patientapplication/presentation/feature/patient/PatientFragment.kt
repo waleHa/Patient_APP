@@ -6,6 +6,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
+import androidx.core.content.ContentProviderCompat.requireContext
 import androidx.core.os.bundleOf
 import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
@@ -14,6 +15,7 @@ import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.RecyclerView
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
+import com.trends.patientapplication.core.BaseFragment
 import com.trends.patientapplication.domain.model.delete.DeletePatientResponseModel
 import com.trends.patientapplication.domain.model.patient.PatientRemoteModel
 import com.trends.patientapplication.presentation.R
@@ -25,8 +27,7 @@ import kotlinx.coroutines.launch
 
 
 @AndroidEntryPoint
-class PatientFragment : Fragment() {
-    private lateinit var binding: FragmentPatientBinding
+class PatientFragment : BaseFragment<FragmentPatientBinding>(R.layout.fragment_patient) {
     private val viewModel: PatientsViewModel by viewModels()
     private lateinit var recyclerView: RecyclerView
     private lateinit var adapter: PatientAdapter

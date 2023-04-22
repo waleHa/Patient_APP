@@ -11,14 +11,15 @@ import androidx.core.os.bundleOf
 import androidx.core.view.isVisible
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
+import com.trends.patientapplication.core.BaseFragment
 import com.trends.patientapplication.presentation.R
 import com.trends.patientapplication.presentation.databinding.FragmentDetailsPatientBinding
+import com.trends.patientapplication.presentation.databinding.FragmentPatientBinding
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.launch
 
 @AndroidEntryPoint
-class DetailsPatientFragment : Fragment() {
-    private lateinit var binding: FragmentDetailsPatientBinding
+class DetailsPatientFragment :  BaseFragment<FragmentDetailsPatientBinding>(R.layout.fragment_details_patient ) {
     private val viewModel: DetailsViewModel by viewModels()
 
     override fun onCreateView(
