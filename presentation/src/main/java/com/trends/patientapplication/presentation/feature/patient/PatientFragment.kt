@@ -27,7 +27,6 @@ import kotlinx.coroutines.launch
 @AndroidEntryPoint
 class PatientFragment : BaseFragment<FragmentPatientBinding>(R.layout.fragment_patient) {
     private val viewModel: PatientsViewModel by viewModels()
-    private lateinit var recyclerView: RecyclerView
     private lateinit var adapter: PatientAdapter
 
     override fun onCreateView(
@@ -40,9 +39,11 @@ class PatientFragment : BaseFragment<FragmentPatientBinding>(R.layout.fragment_p
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 //        initAdapter()
+        initAdapterView()
+
         initObserver()
         initListener()
-        initAdapterView()
+
     }
 
     private fun initListener() {
@@ -61,8 +62,7 @@ class PatientFragment : BaseFragment<FragmentPatientBinding>(R.layout.fragment_p
 
     private fun initAdapterView() {
         adapter = PatientAdapter(::deletePatient,::onClickItem)
-        recyclerView = binding.recyclerView
-        recyclerView.adapter = adapter
+        binding.recyclerView.adapter = adapter
     }
 
     private fun initObserver() {

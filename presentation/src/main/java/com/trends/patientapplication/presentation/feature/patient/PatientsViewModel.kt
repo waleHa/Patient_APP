@@ -28,7 +28,6 @@ class PatientsViewModel @Inject constructor(private val getPatientSortedByNameUs
      private val _deletePatientsSuccess = MutableLiveData<DeletePatientResponse?>()
     val deletePatientsSuccess : LiveData<DeletePatientResponse?> = _deletePatientsSuccess
 
-
     init {
         getPatients()
     }

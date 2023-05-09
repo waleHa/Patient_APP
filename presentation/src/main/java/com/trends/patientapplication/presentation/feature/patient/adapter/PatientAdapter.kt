@@ -18,7 +18,6 @@ class PatientAdapter(
 
     var lastSelected = -1
 
-
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): PatientViewHolder {
         val view = LayoutInflater.from(parent.context).inflate(R.layout.patient_item, parent, false)
         return PatientViewHolder(view)
